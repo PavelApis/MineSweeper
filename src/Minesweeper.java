@@ -25,6 +25,7 @@ public class Minesweeper extends JPanel {
         B_WIDTH = 35 * size_x + 15;
         B_HEIGHT = 35 * size_y + 40;
         setPreferredSize(new Dimension(B_WIDTH, B_HEIGHT));
+        setLayout(new GridLayout());
         initCells();
         setBackground(Color.LIGHT_GRAY);
     }

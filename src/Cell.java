@@ -1,28 +1,39 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.List;
 
+/**
+ * row, column - coords of cell in field.
+ * value: [0-9] - number of mined neighbors; -1 - mine.
+ */
 class Cell extends JButton {
-    int row;
-    int column;
-    boolean mined;
+    private final int row;
+    private final int column;
+    private int value;
 
-    List<Cell> neighbors;
-
-    public Cell(int row, int column){
+    public Cell(int row, int column) {
         this.row = row;
         this.column = column;
-        this.mined = false;
+        this.value = 0;
         setPreferredSize(new Dimension(30, 30));
     }
 
-    public Cell(int row, int column, boolean mine) {
-        this.row = row;
-        this.column = column;
-        this.mined = mine;
+    public int getRow() {
+        return row;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
     }
 
     boolean isMined() {
-        return mined;
+        return this.value == -1;
     }
 }
