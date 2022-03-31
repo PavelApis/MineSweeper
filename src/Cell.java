@@ -6,23 +6,25 @@ import java.awt.*;
  * value: [0-9] - number of mined neighbors; -1 - mine.
  */
 class Cell extends JButton {
-    private final int row;
-    private final int column;
+    static final int CELL_SIZE = 50;
+
+    private final int ROW;
+    private final int COL;
     private int value;
 
     public Cell(int row, int column) {
-        this.row = row;
-        this.column = column;
+        this.ROW = row;
+        this.COL = column;
         this.value = 0;
-        setPreferredSize(new Dimension(30, 30));
+        setPreferredSize(new Dimension(CELL_SIZE, CELL_SIZE));
     }
 
-    public int getRow() {
-        return row;
+    public int getROW() {
+        return ROW;
     }
 
-    public int getColumn() {
-        return column;
+    public int getCOL() {
+        return COL;
     }
 
     public int getValue() {
@@ -31,6 +33,14 @@ class Cell extends JButton {
 
     public void setValue(int value) {
         this.value = value;
+    }
+
+    public void mine() {
+        value = -1;
+    }
+
+    boolean isNotMined() {
+        return this.value != -1;
     }
 
     boolean isMined() {
