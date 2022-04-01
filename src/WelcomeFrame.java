@@ -9,7 +9,7 @@ public class WelcomeFrame extends JFrame {
         setResizable(false);
         JPanel introPanel = new JPanel();
         add(introPanel);
-        introPanel.setPreferredSize(new Dimension(300, 100));
+        introPanel.setPreferredSize(new Dimension(300, 110));
         introPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
         introPanel.setAlignmentY(Component.CENTER_ALIGNMENT);
 
@@ -37,6 +37,8 @@ public class WelcomeFrame extends JFrame {
         introPanel.add(rowInputField);
         introPanel.add(columnInputLabel);
         introPanel.add(columnInputField);
+        introPanel.add(minesInputLabel);
+        introPanel.add(minesInputField);
         introPanel.add(start_game, BorderLayout.CENTER);
         pack();
         setTitle("Minesweeper");

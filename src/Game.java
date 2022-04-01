@@ -4,9 +4,9 @@ public class Game extends JFrame {
 
     Minesweeper minesweeper;
 
-    public Game(int row, int column, int mines) {
+    public Game( int size_x,int size_y, int mines) {
         setResizable(false);
-        minesweeper = new Minesweeper(row, column, mines);
+        minesweeper = new Minesweeper(size_x, size_y, mines);
         add(minesweeper);
         pack();
         setLocationRelativeTo(null);
