@@ -52,6 +52,5 @@ public class Minesweeper extends JPanel {
             System.out.println();
         }
         System.out.println("-------------------");
-
     }
 }
