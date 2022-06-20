@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5b4e1aae-ff61-4da7-af86-7f2ef56f2f0a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IconMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IconMaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Minesweeper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Minesweeper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WelcomeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WelcomeFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprites/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprites/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprites/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprites/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprites/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprites/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprites/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprites/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprites/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprites/5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprites/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprites/6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprites/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprites/7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprites/8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprites/8.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprites/mine.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprites/mine.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprites/mine_exposed.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprites/mine_exposed.jpg" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Apzh7Q3MMjHt5yfySn2DkAcxA9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/Work/Banki.ru/MineSweeper"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5b4e1aae-ff61-4da7-af86-7f2ef56f2f0a" name="Changes" comment="" />
+      <created>1655721431019</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1655721431019</updated>
+      <workItem from="1655721432663" duration="1327000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
