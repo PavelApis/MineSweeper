@@ -1,9 +1,10 @@
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
+package my.minesweeper.papchelnikov;
+
+import javax.swing.JButton;
+import java.awt.Dimension;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
 
 /**
  * row, column - coords of cell in field.

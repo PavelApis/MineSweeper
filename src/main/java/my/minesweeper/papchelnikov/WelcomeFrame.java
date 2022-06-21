@@ -1,5 +1,14 @@
-import javax.swing.*;
-import java.awt.*;
+package my.minesweeper.papchelnikov;
+
+import javax.swing.JPanel;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+import java.awt.Dimension;
+import java.awt.Component;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.function.Function;
@@ -23,7 +32,7 @@ public class WelcomeFrame extends JFrame {
 
 
 
-        JButton start_game = new JButton("Start Game");
+        JButton start_game = new JButton("Start my.minesweeper.papchelnikov.Game");
         start_game.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -41,7 +50,7 @@ public class WelcomeFrame extends JFrame {
         introPanel.add(minesInputField);
         introPanel.add(start_game, BorderLayout.CENTER);
         pack();
-        setTitle("Minesweeper");
+        setTitle("my.minesweeper.papchelnikov.Minesweeper");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);

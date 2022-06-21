@@ -1,6 +1,12 @@
-import javax.swing.*;
-import java.awt.*;
-import java.util.*;
+package my.minesweeper.papchelnikov;
+
+import javax.swing.JPanel;
+import java.awt.GridLayout;
+import java.awt.Dimension;
+import java.awt.Color;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Minesweeper extends JPanel {
@@ -45,8 +51,8 @@ public class Minesweeper extends JPanel {
     }
 
     private void printField() {
-        for (int i = 0; i < size_y; i++){
-            for (int j = 0; j < size_x; j++){
+        for (int i = 0; i < size_y; i++) {
+            for (int j = 0; j < size_x; j++) {
                 System.out.print(field[i][j].getValue());
             }
             System.out.println();

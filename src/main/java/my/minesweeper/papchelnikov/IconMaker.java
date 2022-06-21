@@ -1,6 +1,9 @@
+package my.minesweeper.papchelnikov;
+
 import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
+import java.awt.Image;
 
 public class IconMaker{
     JButton button;

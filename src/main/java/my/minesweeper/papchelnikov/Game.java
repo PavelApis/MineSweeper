@@ -1,4 +1,6 @@
-import javax.swing.*;
+package my.minesweeper.papchelnikov;
+
+import javax.swing.JFrame;
 
 public class Game extends JFrame {
 
@@ -11,7 +13,7 @@ public class Game extends JFrame {
         pack();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("Minesweeper");
+        setTitle("my.minesweeper.papchelnikov.Minesweeper");
         setVisible(true);
     }
 }
