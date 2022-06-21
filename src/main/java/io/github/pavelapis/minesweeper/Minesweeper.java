@@ -1,35 +1,35 @@
-package my.minesweeper.papchelnikov;
+package io.github.pavelapis.minesweeper;
 
-import javax.swing.JPanel;
-import java.awt.GridLayout;
-import java.awt.Dimension;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import javax.swing.JPanel;
 
 public class Minesweeper extends JPanel {
 
-    int size_x;
-    int size_y;
+    int sizeX;
+    int sizeY;
     Cell[][] field;
 
     private void initCells() {
-        field = new Cell[size_y][size_x];
-        for (int i = 0; i < size_y; i++) {
-            for (int j = 0; j < size_x; j++) {
+        field = new Cell[sizeY][sizeX];
+        for (int i = 0; i < sizeY; i++) {
+            for (int j = 0; j < sizeX; j++) {
                 field[i][j] = new Cell(this, i, j);
                 add(field[i][j]);
             }
         }
     }
 
-    public Minesweeper(int size_x, int size_y, int mines) {
-        this.size_x = size_x;
-        this.size_y = size_y;
-        setPreferredSize(new Dimension(Cell.CELL_SIZE * size_x, Cell.CELL_SIZE * size_y));
-        setLayout(new GridLayout(size_y, size_x));
+    public Minesweeper(int sizeX, int sizeY, int mines) {
+        this.sizeX = sizeX;
+        this.sizeY = sizeY;
+        setPreferredSize(new Dimension(Cell.CELL_SIZE * sizeX, Cell.CELL_SIZE * sizeY));
+        setLayout(new GridLayout(sizeY, sizeX));
         initCells();
         mineCells(mines);
         printField();
@@ -46,13 +46,13 @@ public class Minesweeper extends JPanel {
     }
 
     public void setCellsValues() {
-        Arrays.stream(field).flatMap(Arrays::stream).filter(Cell::isNotMined).
-                forEach(cell -> cell.setValue(cell.numberOfMinedNeighbours()));
+        Arrays.stream(field).flatMap(Arrays::stream).filter(Cell::isNotMined)
+                .forEach(cell -> cell.setValue(cell.numberOfMinedNeighbours()));
     }
 
     private void printField() {
-        for (int i = 0; i < size_y; i++) {
-            for (int j = 0; j < size_x; j++) {
+        for (int i = 0; i < sizeY; i++) {
+            for (int j = 0; j < sizeX; j++) {
                 System.out.print(field[i][j].getValue());
             }
             System.out.println();

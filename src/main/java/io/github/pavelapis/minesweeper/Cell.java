@@ -1,10 +1,11 @@
-package my.minesweeper.papchelnikov;
+package io.github.pavelapis.minesweeper;
 
-import javax.swing.JButton;
-import java.awt.Dimension;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
 
 /**
  * row, column - coords of cell in field.
@@ -13,17 +14,16 @@ import java.awt.event.ActionListener;
 class Cell extends JButton {
     private final Minesweeper minesweeper;
     private boolean isOpened;
-    final static int CELL_SIZE = 45;
-    private final int X;
-    private final int Y;
+    static final int CELL_SIZE = 45;
+    private final int coordinateX;
+    private final int coordinateY;
     private int value;
 
 
-    public Cell(Minesweeper minesweeper, int Y, int X) {
-        super();
+    public Cell(Minesweeper minesweeper, int y, int x) {
         this.minesweeper = minesweeper;
-        this.X = X;
-        this.Y = Y;
+        this.coordinateX = x;
+        this.coordinateY = y;
         this.value = 0;
         setSize(new Dimension(CELL_SIZE, CELL_SIZE));
         setBackground(Color.decode("#E4E4E4"));
@@ -36,11 +36,11 @@ class Cell extends JButton {
     }
 
     public int getCellY() {
-        return Y;
+        return coordinateY;
     }
 
     public int getCellX() {
-        return X;
+        return coordinateX;
     }
 
     public int getValue() {
@@ -65,14 +65,14 @@ class Cell extends JButton {
 
 
     boolean checkBounds(int i, int j) {
-        return (i >= 0 && i < minesweeper.size_y) && (j >= 0 && j < minesweeper.size_x);
+        return (i >= 0 && i < minesweeper.sizeY) && (j >= 0 && j < minesweeper.sizeX);
     }
 
     int numberOfMinedNeighbours() {
         int result = 0;
-        for(int i = Y -1; i <= Y + 1; i++){
-            for (int j = X - 1; j <= X+1; j++){
-                if(checkBounds(i, j) && minesweeper.field[i][j].isMined()){
+        for (int i = coordinateY - 1; i <= coordinateY + 1; i++) {
+            for (int j = coordinateX - 1; j <= coordinateX + 1; j++) {
+                if (checkBounds(i, j) && minesweeper.field[i][j].isMined()) {
                     result++;
                 }
             }
@@ -81,7 +81,7 @@ class Cell extends JButton {
         return result;
     }
 
-    private void setFlag(){
+    private void setFlag() {
 
     }
 
@@ -116,6 +116,7 @@ class Cell extends JButton {
             case 6 -> iconFactory.setIcon("sprites/6.jpg");
             case 7 -> iconFactory.setIcon("sprites/7.jpg");
             case 8 -> iconFactory.setIcon("sprites/8.jpg");
+            default -> throw new IllegalStateException("Value of cell must be from -1 to 9");
         }
     }
 }

@@ -1,4 +1,4 @@
-package my.minesweeper.papchelnikov;
+package io.github.pavelapis.minesweeper;
 
 import javax.swing.JFrame;
 
@@ -6,14 +6,14 @@ public class Game extends JFrame {
 
     Minesweeper minesweeper;
 
-    public Game( int size_x,int size_y, int mines) {
+    public Game(int sizeX, int sizeY, int mines) {
         setResizable(false);
-        minesweeper = new Minesweeper(size_x, size_y, mines);
+        minesweeper = new Minesweeper(sizeX, sizeY, mines);
         add(minesweeper);
         pack();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("my.minesweeper.papchelnikov.Minesweeper");
+        setTitle("Minesweeper");
         setVisible(true);
     }
 }

@@ -6,5 +6,5 @@
  * @version 1.0
  */
 
-package my.minesweeper.papchelnikov;
+package io.github.pavelapis.minesweeper;
 
