@@ -10,6 +10,7 @@ import javax.swing.JButton;
  * value: [0-9] - number of mined neighbors; -1 - mine.
  */
 class Cell extends JButton {
+
     private final Minesweeper minesweeper;
     private boolean isOpened;
     static final int CELL_SIZE = 45;

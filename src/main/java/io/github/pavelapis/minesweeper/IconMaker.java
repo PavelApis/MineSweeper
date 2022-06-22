@@ -6,6 +6,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class IconMaker {
+
     JButton button;
     Path pathToSprites = FileSystems.getDefault().getPath("src", "main", "java", "sprites");
 

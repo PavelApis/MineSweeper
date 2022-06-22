@@ -21,19 +21,16 @@ public class WelcomeFrame extends JFrame {
 
         JLabel rowInputLabel = new JLabel("Enter number of rows: ");
         introPanel.add(rowInputLabel);
-
-        JLabel columnInputLabel = new JLabel("Enter number of columns: ");
-        introPanel.add(columnInputLabel);
-
-        JLabel minesInputLabel = new JLabel("Enter number of mines: ");
-        introPanel.add(minesInputLabel);
-
         JTextField rowInputField = new JTextField(5);
         introPanel.add(rowInputField);
 
+        JLabel columnInputLabel = new JLabel("Enter number of columns: ");
+        introPanel.add(columnInputLabel);
         JTextField columnInputField = new JTextField(5);
         introPanel.add(columnInputField);
 
+        JLabel minesInputLabel = new JLabel("Enter number of mines: ");
+        introPanel.add(minesInputLabel);
         JTextField minesInputField = new JTextField(5);
         introPanel.add(minesInputField);
 
@@ -43,7 +40,7 @@ public class WelcomeFrame extends JFrame {
             setVisible(false);
             Function<JTextField, Integer> getText = x -> Integer.parseInt(x.getText());
             Game game = new Game(
-                    getText.apply(rowInputField), getText.apply(columnInputField), getText.apply(minesInputField)
+                    getText.apply(columnInputField), getText.apply(rowInputField), getText.apply(minesInputField)
             );
         });
 
