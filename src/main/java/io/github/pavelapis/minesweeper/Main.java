@@ -1,7 +1,14 @@
 package io.github.pavelapis.minesweeper;
 
+import javax.swing.*;
+
 public class Main {
     public static void main(String[] args) {
-        Game game = new Game(20, 10, 20);
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new WelcomeFrame();
+            }
+        });
     }
 }
