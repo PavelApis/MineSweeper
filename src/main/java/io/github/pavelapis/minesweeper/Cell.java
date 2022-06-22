@@ -2,8 +2,6 @@ package io.github.pavelapis.minesweeper;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 
@@ -27,12 +25,7 @@ class Cell extends JButton {
         this.value = 0;
         setSize(new Dimension(CELL_SIZE, CELL_SIZE));
         setBackground(Color.decode("#E4E4E4"));
-        this.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                clickCell();
-            }
-        });
+        this.addActionListener(actionEvent -> clickCell());
     }
 
     public int getCellY() {
@@ -82,7 +75,7 @@ class Cell extends JButton {
     }
 
     private void setFlag() {
-
+        //TODO
     }
 
     private void clickCell() {
