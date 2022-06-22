@@ -91,32 +91,23 @@ class Cell extends JButton {
         }
         isOpened = true;
         IconMaker iconFactory = new IconMaker(this);
-        switch (this.getValue()) {
-            case -1 -> {
-                iconFactory.setIcon("sprites/mine.jpg");
-            }
-            case 0 -> {
-                setBackground(Color.lightGray);
-                int y = getCellY();
-                int x = getCellX();
-                for (int i = y - 1; i <= y + 1; i++) {
-                    for (int j = x - 1; j <= x + 1; j++) {
-                        if (!(i == x && j == y) && checkBounds(i, j)) {
-                            minesweeper.field[i][j].clickCell();
-                        }
+        if (this.getValue() == -1) {
+            iconFactory.setIcon("mine");
+        } else if (this.getValue() == 0) {
+            setBackground(Color.lightGray);
+            int y = getCellY();
+            int x = getCellX();
+            for (int i = y - 1; i <= y + 1; i++) {
+                for (int j = x - 1; j <= x + 1; j++) {
+                    if (!(i == x && j == y) && checkBounds(i, j)) {
+                        minesweeper.field[i][j].clickCell();
                     }
                 }
             }
-
-            case 1 -> iconFactory.setIcon("sprites/1.jpg");
-            case 2 -> iconFactory.setIcon("sprites/2.jpg");
-            case 3 -> iconFactory.setIcon("sprites/3.jpg");
-            case 4 -> iconFactory.setIcon("sprites/4.jpg");
-            case 5 -> iconFactory.setIcon("sprites/5.jpg");
-            case 6 -> iconFactory.setIcon("sprites/6.jpg");
-            case 7 -> iconFactory.setIcon("sprites/7.jpg");
-            case 8 -> iconFactory.setIcon("sprites/8.jpg");
-            default -> throw new IllegalStateException("Value of cell must be from -1 to 9");
-        }
+        } else if (this.getValue() >= 1 || this.getValue() < 10) {
+            iconFactory.setIcon(Integer.toString(this.getValue()));
+        } else
+            throw new IllegalStateException("Value of cell must be from -1 to 9");
     }
 }
+
