@@ -106,8 +106,9 @@ class Cell extends JButton {
             }
         } else if (this.getValue() >= 1 || this.getValue() < 10) {
             iconFactory.setIcon(Integer.toString(this.getValue()));
-        } else
+        } else {
             throw new IllegalStateException("Value of cell must be from -1 to 9");
+        }
     }
 }
 

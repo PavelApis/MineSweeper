@@ -1,6 +1,6 @@
 /**
  *
- * Java Minesweeper Game
+ * Java Minesweeper Game.
  *
  * @since 1.0
  * @author papchelnikov

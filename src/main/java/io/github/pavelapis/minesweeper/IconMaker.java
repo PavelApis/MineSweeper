@@ -1,10 +1,9 @@
 package io.github.pavelapis.minesweeper;
 
-import java.awt.Image;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
-import javax.imageio.ImageIO;
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 
 public class IconMaker {
     JButton button;
@@ -15,6 +14,6 @@ public class IconMaker {
     }
 
     public void setIcon(String name) {
-        button.setIcon(new ImageIcon(pathToSprites.resolve( name + ".jpg").toString()));
+        button.setIcon(new ImageIcon(pathToSprites.resolve(name + ".jpg").toString()));
     }
 }
