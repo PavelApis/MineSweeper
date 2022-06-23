@@ -13,7 +13,6 @@
 2. After installing the necessary programs, you must run the following commands in the root of the project:
 ~~~ 
   mvn install 
-  mvn package
   ~~~
 
 
