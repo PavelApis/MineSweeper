@@ -71,7 +71,6 @@ class Cell extends JButton {
                 }
             }
         }
-        System.out.println(result);
         return result;
     }
 

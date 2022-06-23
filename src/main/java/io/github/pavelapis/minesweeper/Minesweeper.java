@@ -32,9 +32,7 @@ public class Minesweeper extends JPanel {
         setLayout(new GridLayout(sizeY, sizeX));
         initCells();
         mineCells(mines);
-        printField();
         setCellsValues();
-        printField();
         setBackground(Color.LIGHT_GRAY);
     }
 
@@ -45,12 +43,13 @@ public class Minesweeper extends JPanel {
         listOfCells.stream().limit(mines).forEach(Cell::mine);
     }
 
-    public void setCellsValues() {
+    private void setCellsValues() {
         Arrays.stream(field).flatMap(Arrays::stream).filter(Cell::isNotMined)
                 .forEach(cell -> cell.setValue(cell.numberOfMinedNeighbours()));
     }
 
-    private void printField() {
+    /* TODO
+    private void logField() {
         for (int i = 0; i < sizeY; i++) {
             for (int j = 0; j < sizeX; j++) {
                 System.out.print(field[i][j].getValue());
@@ -59,4 +58,5 @@ public class Minesweeper extends JPanel {
         }
         System.out.println("-------------------");
     }
+    */
 }
