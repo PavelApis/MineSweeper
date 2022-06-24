@@ -13,20 +13,25 @@ class Cell extends JButton {
 
     private final Minesweeper minesweeper;
     private boolean isOpened;
-    static final int CELL_SIZE = 45;
+    //The pixel size of button
+    private static final int CELL_SIZE = 30;
     private final int coordinateX;
     private final int coordinateY;
     private int value;
 
 
-    public Cell(Minesweeper minesweeper, int y, int x) {
+    public Cell(final Minesweeper minesweeper, final int coordinateY, final int coordinateX) {
         this.minesweeper = minesweeper;
-        this.coordinateX = x;
-        this.coordinateY = y;
+        this.coordinateX = coordinateX;
+        this.coordinateY = coordinateY;
         this.value = 0;
         setSize(new Dimension(CELL_SIZE, CELL_SIZE));
         setBackground(Color.decode("#E4E4E4"));
         this.addActionListener(actionEvent -> clickCell());
+    }
+
+    public static int getCellSize() {
+        return CELL_SIZE;
     }
 
     public int getCellY() {
@@ -41,7 +46,7 @@ class Cell extends JButton {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(final int value) {
         this.value = value;
     }
 
@@ -49,24 +54,24 @@ class Cell extends JButton {
         value = -1;
     }
 
-    boolean isNotMined() {
+    public boolean isNotMined() {
         return this.value != -1;
     }
 
-    boolean isMined() {
+    public boolean isMined() {
         return this.value == -1;
     }
 
 
-    boolean checkBounds(int i, int j) {
-        return (i >= 0 && i < minesweeper.sizeY) && (j >= 0 && j < minesweeper.sizeX);
+    public boolean checkBounds(final int row, final int column) {
+        return row >= 0 && row < minesweeper.getSizeY() && column >= 0 && column < minesweeper.getSizeX();
     }
 
-    int numberOfMinedNeighbours() {
+    public int numberOfMinedNeighbours() {
         int result = 0;
         for (int i = coordinateY - 1; i <= coordinateY + 1; i++) {
             for (int j = coordinateX - 1; j <= coordinateX + 1; j++) {
-                if (checkBounds(i, j) && minesweeper.field[i][j].isMined()) {
+                if (checkBounds(i, j) && minesweeper.getField()[i][j].isMined()) {
                     result++;
                 }
             }
@@ -74,26 +79,28 @@ class Cell extends JButton {
         return result;
     }
 
+    /* TODO
     private void setFlag() {
-        //TODO
+
     }
+    */
 
     private void clickCell() {
         if (isOpened) {
             return;
         }
         isOpened = true;
-        IconMaker iconFactory = new IconMaker(this);
+        final IconMaker iconFactory = new IconMaker(this);
         if (this.getValue() == -1) {
             iconFactory.setIcon("mine");
         } else if (this.getValue() == 0) {
             setBackground(Color.lightGray);
-            int y = getCellY();
-            int x = getCellX();
-            for (int i = y - 1; i <= y + 1; i++) {
-                for (int j = x - 1; j <= x + 1; j++) {
-                    if (!(i == x && j == y) && checkBounds(i, j)) {
-                        minesweeper.field[i][j].clickCell();
+            final int coordinateY = getCellY();
+            final int coordinateX = getCellX();
+            for (int i = coordinateY - 1; i <= coordinateY + 1; i++) {
+                for (int j = coordinateX - 1; j <= coordinateX + 1; j++) {
+                    if (!(i == coordinateX && j == coordinateY) && checkBounds(i, j)) {
+                        minesweeper.getField()[i][j].clickCell();
                     }
                 }
             }

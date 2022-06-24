@@ -5,46 +5,12 @@
     </description>
 
     <rule ref="category/java/bestpractices.xml">
-        <exclude name="AbstractClassWithoutAbstractMethod"/>
-        <exclude name="AccessorClassGeneration"/>
-        <exclude name="ArrayIsStoreDirectly"/>
-        <exclude name="AvoidPrintStackTrace"/>
-        <exclude name="AvoidReassigningCatchVariables"/>
-        <exclude name="AvoidReassigningLoopVariables"/>
-        <exclude name="AvoidReassigningParameters"/>
-        <exclude name="AvoidStringBufferField"/>
-        <exclude name="ConstantsInInterface"/>
-        <exclude name="DefaultLabelNotLastInSwitchStmt"/>
-        <exclude name="DoubleBraceInitialization"/>
-        <exclude name="ForLoopCanBeForeach"/>
-        <exclude name="ForLoopVariableCount"/>
-        <exclude name="GuardLogStatement"/>
-        <exclude name="LiteralsFirstInComparisons"/>
-        <exclude name="LooseCoupling"/>
         <exclude name="MethodReturnsInternalArray"/>
-        <exclude name="MissingOverride"/>
-        <exclude name="OneDeclarationPerLine"/>
-        <exclude name="PreserveStackTrace"/>
-        <exclude name="PrimitiveWrapperInstantiation"/>
-        <exclude name="ReplaceEnumerationWithIterator"/>
-        <exclude name="ReplaceHashtableWithMap"/>
-        <exclude name="ReplaceVectorWithList"/>
-        <exclude name="SimplifiableTestAssertion"/>
-        <exclude name="SwitchStmtsShouldHaveDefault"/>
-        <exclude name="SystemPrintln"/>
-        <exclude name="UnusedAssignment"/>
-        <exclude name="UnusedFormalParameter"/>
-        <exclude name="UnusedPrivateField"/>
-        <exclude name="UnusedPrivateMethod"/>
-        <exclude name="UseCollectionIsEmpty"/>
-        <exclude name="UseStandardCharsets"/>
-        <exclude name="UseTryWithResources"/>
-        <exclude name="UseVarargs"/>
-        <exclude name="WhileLoopWithLiteralBoolean"/>
     </rule>
 
     <rule ref="category/java/codestyle.xml">
-        <exclude name="WhileLoopsMustUseBraces"/>
-        <exclude name="IfElseStmtsMustUseBraces"/>
+        <exclude name="CallSuperInConstructor"/>
+        <exclude name="ShortClassName"/>
+
     </rule>
 </ruleset>

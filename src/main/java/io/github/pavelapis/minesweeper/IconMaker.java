@@ -7,14 +7,14 @@ import javax.swing.JButton;
 
 public class IconMaker {
 
-    JButton button;
-    Path pathToSprites = FileSystems.getDefault().getPath("src", "main", "java", "sprites");
+    private JButton button;
+    private Path pathToSprites = FileSystems.getDefault().getPath("src", "main", "java", "sprites");
 
-    public IconMaker(JButton button) {
+    public IconMaker(final JButton button) {
         this.button = button;
     }
 
-    public void setIcon(String name) {
+    public void setIcon(final String name) {
         button.setIcon(new ImageIcon(pathToSprites.resolve(name + ".jpg").toString()));
     }
 }

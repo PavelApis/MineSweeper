@@ -11,9 +11,21 @@ import javax.swing.JPanel;
 
 public class Minesweeper extends JPanel {
 
-    int sizeX;
-    int sizeY;
-    Cell[][] field;
+    private int sizeX;
+    private int sizeY;
+    private Cell[][] field;
+
+    public int getSizeX() {
+        return sizeX;
+    }
+
+    public int getSizeY() {
+        return sizeY;
+    }
+
+    public Cell[][] getField() {
+        return field;
+    }
 
     private void initCells() {
         field = new Cell[sizeY][sizeX];
@@ -25,10 +37,10 @@ public class Minesweeper extends JPanel {
         }
     }
 
-    public Minesweeper(int sizeX, int sizeY, int mines) {
+    public Minesweeper(final int sizeX, final int sizeY, final int mines) {
         this.sizeX = sizeX;
         this.sizeY = sizeY;
-        setPreferredSize(new Dimension(Cell.CELL_SIZE * sizeX, Cell.CELL_SIZE * sizeY));
+        setPreferredSize(new Dimension(Cell.getCellSize() * sizeX, Cell.getCellSize() * sizeY));
         setLayout(new GridLayout(sizeY, sizeX));
         initCells();
         mineCells(mines);
@@ -36,8 +48,8 @@ public class Minesweeper extends JPanel {
         setBackground(Color.LIGHT_GRAY);
     }
 
-    private void mineCells(int mines) {
-        List<Cell> listOfCells = new LinkedList<>();
+    private void mineCells(final int mines) {
+        final List<Cell> listOfCells = new LinkedList<>();
         Arrays.stream(field).flatMap(Arrays::stream).forEach(listOfCells::add);
         Collections.shuffle(listOfCells);
         listOfCells.stream().limit(mines).forEach(Cell::mine);

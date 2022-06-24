@@ -4,9 +4,9 @@ import javax.swing.JFrame;
 
 public class Game extends JFrame {
 
-    Minesweeper minesweeper;
+    private Minesweeper minesweeper;
 
-    public Game(int sizeX, int sizeY, int mines) {
+    public Game(final int sizeX, final int sizeY, final int mines) {
         setResizable(false);
         minesweeper = new Minesweeper(sizeX, sizeY, mines);
         add(minesweeper);
