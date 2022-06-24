@@ -7,7 +7,7 @@ import javax.swing.JButton;
 
 public class IconMaker {
 
-    private JButton button;
+    private final JButton button;
     private Path pathToSprites = FileSystems.getDefault().getPath("src", "main", "java", "sprites");
 
     public IconMaker(final JButton button) {

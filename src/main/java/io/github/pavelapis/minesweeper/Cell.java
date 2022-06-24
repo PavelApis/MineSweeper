@@ -10,11 +10,11 @@ import javax.swing.JButton;
  * value: [0-9] - number of mined neighbors; -1 - mine.
  */
 class Cell extends JButton {
-
+    public static final long serialVersionUID = 1;
     private final Minesweeper minesweeper;
     private boolean isOpened;
     //The pixel size of button
-    private static final int CELL_SIZE = 30;
+    private static final int CELL_SIZE = 45;
     private final int coordinateX;
     private final int coordinateY;
     private int value;
@@ -71,7 +71,7 @@ class Cell extends JButton {
         int result = 0;
         for (int i = coordinateY - 1; i <= coordinateY + 1; i++) {
             for (int j = coordinateX - 1; j <= coordinateX + 1; j++) {
-                if (checkBounds(i, j) && minesweeper.getField()[i][j].isMined()) {
+                if (checkBounds(i, j) && minesweeper.checkIsMined(i, j)) {
                     result++;
                 }
             }
@@ -85,7 +85,7 @@ class Cell extends JButton {
     }
     */
 
-    private void clickCell() {
+    protected void clickCell() {
         if (isOpened) {
             return;
         }
@@ -95,19 +95,23 @@ class Cell extends JButton {
             iconFactory.setIcon("mine");
         } else if (this.getValue() == 0) {
             setBackground(Color.lightGray);
-            final int coordinateY = getCellY();
-            final int coordinateX = getCellX();
-            for (int i = coordinateY - 1; i <= coordinateY + 1; i++) {
-                for (int j = coordinateX - 1; j <= coordinateX + 1; j++) {
-                    if (!(i == coordinateX && j == coordinateY) && checkBounds(i, j)) {
-                        minesweeper.getField()[i][j].clickCell();
-                    }
-                }
-            }
+            spreadClick();
         } else if (this.getValue() >= 1 || this.getValue() < 10) {
             iconFactory.setIcon(Integer.toString(this.getValue()));
         } else {
             throw new IllegalStateException("Value of cell must be from -1 to 9");
+        }
+    }
+
+    private void spreadClick() {
+        final int coordinateY = getCellY();
+        final int coordinateX = getCellX();
+        for (int i = coordinateY - 1; i <= coordinateY + 1; i++) {
+            for (int j = coordinateX - 1; j <= coordinateX + 1; j++) {
+                if (!(i == coordinateX && j == coordinateY) && checkBounds(i, j)) {
+                    minesweeper.clickCell(i, j);
+                }
+            }
         }
     }
 }

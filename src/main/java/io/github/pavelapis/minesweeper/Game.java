@@ -4,12 +4,9 @@ import javax.swing.JFrame;
 
 public class Game extends JFrame {
 
-    private Minesweeper minesweeper;
-
     public Game(final int sizeX, final int sizeY, final int mines) {
         setResizable(false);
-        minesweeper = new Minesweeper(sizeX, sizeY, mines);
-        add(minesweeper);
+        add(new Minesweeper(sizeX, sizeY, mines));
         pack();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -11,8 +11,8 @@ import javax.swing.JPanel;
 
 public class Minesweeper extends JPanel {
 
-    private int sizeX;
-    private int sizeY;
+    private final int sizeX;
+    private final int sizeY;
     private Cell[][] field;
 
     public int getSizeX() {
@@ -23,8 +23,16 @@ public class Minesweeper extends JPanel {
         return sizeY;
     }
 
-    public Cell[][] getField() {
-        return field;
+    public Cell getCell(final int row, final int column) {
+        return field[row][column];
+    }
+
+    public boolean checkIsMined(final int row, final int column) {
+        return field[row][column].isMined();
+    }
+
+    public void clickCell(final int row, final int column) {
+        field[row][column].clickCell();
     }
 
     private void initCells() {
