@@ -22,17 +22,17 @@ public class Minesweeper extends JFrame {
     private final int sizeY;
     @Getter
     private Cell[][] field;
-
-    public Cell getCell(final int row, final int column) {
-        return field[row][column];
-    }
+    @Getter
+    private final int numberOfMines;
+    @Getter
+    private int leftCellsToOpen;
 
     public boolean checkIsMined(final int row, final int column) {
         return field[row][column].isMined();
     }
 
     public void clickCell(final int row, final int column) {
-        field[row][column].clickCell();
+        clickCell(field[row][column]);
     }
 
     private void initCells() {
@@ -48,6 +48,9 @@ public class Minesweeper extends JFrame {
     public Minesweeper(final int sizeX, final int sizeY, final int mines) {
         this.sizeX = sizeX;
         this.sizeY = sizeY;
+        this.numberOfMines = mines;
+        this.leftCellsToOpen = sizeX * sizeY - mines;
+
         setPreferredSize(new Dimension(Cell.getCELL_SIZE() * sizeX, Cell.getCELL_SIZE() * sizeY));
         setResizable(false);
         setLayout(new GridLayout(sizeY, sizeX));
@@ -71,7 +74,7 @@ public class Minesweeper extends JFrame {
 
     private void setCellsValues() {
         Arrays.stream(field).flatMap(Arrays::stream).filter(Cell::isNotMined)
-                .forEach(cell -> cell.setValue(cell.numberOfMinedNeighbours()));
+                .forEach(cell -> cell.setValue(numberOfMinedNeighbours(cell)));
     }
 
     /* TODO
@@ -85,4 +88,70 @@ public class Minesweeper extends JFrame {
         System.out.println("-------------------");
     }
     */
+    private void gameLost() {
+        setEnabled(false);
+        new LoseFrame(this);
+    }
+
+    private void checkWin(){
+        if(leftCellsToOpen == 0){
+            gameWin();
+        }
+    }
+
+    private void gameWin(){
+        setEnabled(false);
+        new WinFrame(this);
+    }
+
+    public boolean checkBounds(final int row, final int column) {
+        return row >= 0 && row < getSizeY() && column >= 0 && column < getSizeX();
+    }
+
+    public int numberOfMinedNeighbours(Cell cell) {
+        int result = 0;
+        int coordinateY = cell.getCoordinateY();
+        int coordinateX = cell.getCoordinateX();
+        for (int i = coordinateY - 1; i <= coordinateY + 1; i++) {
+            for (int j = coordinateX - 1; j <= coordinateX + 1; j++) {
+                if (checkBounds(i, j) && checkIsMined(i, j)) {
+                    result++;
+                }
+            }
+        }
+        return result;
+    }
+
+    protected void clickCell(Cell cell) {
+        if (cell.isOpened()) {
+            return;
+        }
+        cell.setOpened(true);
+        if (cell.getValue() == -1) {
+            gameLost();
+            IconMaker.setIcon(cell, "mine");
+        } else if (cell.getValue() == 0) {
+            leftCellsToOpen--;
+            cell.setBackground(Color.lightGray);
+            spreadClick(cell);
+        } else if (cell.getValue() >= 1 || cell.getValue() < 10) {
+            leftCellsToOpen--;
+            IconMaker.setIcon(cell, Integer.toString(cell.getValue()));
+        } else {
+            throw new IllegalStateException("Value of cell must be from -1 to 9");
+        }
+        checkWin();
+    }
+
+    private void spreadClick(Cell cell) {
+        final int coordinateY = cell.getCoordinateY();
+        final int coordinateX = cell.getCoordinateX();
+        for (int i = coordinateY - 1; i <= coordinateY + 1; i++) {
+            for (int j = coordinateX - 1; j <= coordinateX + 1; j++) {
+                if (!(i == coordinateX && j == coordinateY) && checkBounds(i, j)) {
+                    clickCell(i, j);
+                }
+            }
+        }
+    }
 }
