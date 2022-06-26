@@ -1,5 +1,8 @@
 package io.github.pavelapis.minesweeper;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JButton;
@@ -9,14 +12,21 @@ import javax.swing.JButton;
  * row, column - coords of cell in field.
  * value: [0-9] - number of mined neighbors; -1 - mine.
  */
+
 class Cell extends JButton {
-    public static final long serialVersionUID = 1;
+
+    private static final long serialVersionUID = 1;
     private final Minesweeper minesweeper;
     private boolean isOpened;
     //The pixel size of button
+    @Getter
     private static final int CELL_SIZE = 45;
+    @Getter
     private final int coordinateX;
+    @Getter
     private final int coordinateY;
+    @Getter
+    @Setter
     private int value;
 
 
@@ -28,26 +38,6 @@ class Cell extends JButton {
         setSize(new Dimension(CELL_SIZE, CELL_SIZE));
         setBackground(Color.decode("#E4E4E4"));
         this.addActionListener(actionEvent -> clickCell());
-    }
-
-    public static int getCellSize() {
-        return CELL_SIZE;
-    }
-
-    public int getCellY() {
-        return coordinateY;
-    }
-
-    public int getCellX() {
-        return coordinateX;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
-    public void setValue(final int value) {
-        this.value = value;
     }
 
     public void mine() {
@@ -104,8 +94,8 @@ class Cell extends JButton {
     }
 
     private void spreadClick() {
-        final int coordinateY = getCellY();
-        final int coordinateX = getCellX();
+        final int coordinateY = getCoordinateY();
+        final int coordinateX = getCoordinateX();
         for (int i = coordinateY - 1; i <= coordinateY + 1; i++) {
             for (int j = coordinateX - 1; j <= coordinateX + 1; j++) {
                 if (!(i == coordinateX && j == coordinateY) && checkBounds(i, j)) {

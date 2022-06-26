@@ -1,5 +1,7 @@
 package io.github.pavelapis.minesweeper;
 
+import lombok.Getter;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -11,17 +13,11 @@ import javax.swing.JPanel;
 
 public class Minesweeper extends JPanel {
 
+    @Getter
     private final int sizeX;
+    @Getter
     private final int sizeY;
     private Cell[][] field;
-
-    public int getSizeX() {
-        return sizeX;
-    }
-
-    public int getSizeY() {
-        return sizeY;
-    }
 
     public Cell getCell(final int row, final int column) {
         return field[row][column];
@@ -48,7 +44,7 @@ public class Minesweeper extends JPanel {
     public Minesweeper(final int sizeX, final int sizeY, final int mines) {
         this.sizeX = sizeX;
         this.sizeY = sizeY;
-        setPreferredSize(new Dimension(Cell.getCellSize() * sizeX, Cell.getCellSize() * sizeY));
+        setPreferredSize(new Dimension(Cell.getCELL_SIZE() * sizeX, Cell.getCELL_SIZE() * sizeY));
         setLayout(new GridLayout(sizeY, sizeX));
         initCells();
         mineCells(mines);
