@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.io.Serial;
 import javax.swing.JButton;
 
 
@@ -15,10 +16,12 @@ import javax.swing.JButton;
 
 class Cell extends JButton {
 
-    private static final long serialVersionUID = 1;
-    private final Minesweeper minesweeper;
-    private boolean isOpened;
-    //The pixel size of button
+    @Serial
+    private static final long serialVersionUID = 1L;
+    private final transient Minesweeper minesweeper;
+    @Getter
+    @Setter
+    private boolean opened;
     @Getter
     private static final int CELL_SIZE = 45;
     @Getter
@@ -76,18 +79,17 @@ class Cell extends JButton {
     */
 
     protected void clickCell() {
-        if (isOpened) {
+        if (isOpened()) {
             return;
         }
-        isOpened = true;
-        final IconMaker iconFactory = new IconMaker(this);
+        setOpened(true);
         if (this.getValue() == -1) {
-            iconFactory.setIcon("mine");
+            IconMaker.setIcon(this, "mine");
         } else if (this.getValue() == 0) {
             setBackground(Color.lightGray);
             spreadClick();
         } else if (this.getValue() >= 1 || this.getValue() < 10) {
-            iconFactory.setIcon(Integer.toString(this.getValue()));
+            IconMaker.setIcon(this, Integer.toString(this.getValue()));
         } else {
             throw new IllegalStateException("Value of cell must be from -1 to 9");
         }

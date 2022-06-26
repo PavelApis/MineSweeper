@@ -5,18 +5,22 @@ import lombok.Getter;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.io.Serial;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import javax.swing.JPanel;
+import javax.swing.*;
 
-public class Minesweeper extends JPanel {
+public class Minesweeper extends JFrame {
 
+    @Serial
+    private static final long serialVersionUID = 2L;
     @Getter
     private final int sizeX;
     @Getter
     private final int sizeY;
+    @Getter
     private Cell[][] field;
 
     public Cell getCell(final int row, final int column) {
@@ -45,11 +49,17 @@ public class Minesweeper extends JPanel {
         this.sizeX = sizeX;
         this.sizeY = sizeY;
         setPreferredSize(new Dimension(Cell.getCELL_SIZE() * sizeX, Cell.getCELL_SIZE() * sizeY));
+        setResizable(false);
         setLayout(new GridLayout(sizeY, sizeX));
         initCells();
         mineCells(mines);
         setCellsValues();
+        pack();
         setBackground(Color.LIGHT_GRAY);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setTitle("Minesweeper");
+        setVisible(true);
     }
 
     private void mineCells(final int mines) {

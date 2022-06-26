@@ -3,6 +3,7 @@ package io.github.pavelapis.minesweeper;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.io.Serial;
 import java.util.function.Function;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -11,6 +12,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class WelcomeFrame extends JFrame {
+
+    @Serial
+    private static final long serialVersionUID = 3L;
+
     public WelcomeFrame() {
         setResizable(false);
         final JPanel introPanel = new JPanel();
@@ -39,7 +44,7 @@ public class WelcomeFrame extends JFrame {
         startGame.addActionListener(actionEvent -> {
             setVisible(false);
             final Function<JTextField, Integer> getText = x -> Integer.parseInt(x.getText());
-            new Game(
+            new Minesweeper(
                     getText.apply(columnInputField), getText.apply(rowInputField), getText.apply(minesInputField)
             );
         });
