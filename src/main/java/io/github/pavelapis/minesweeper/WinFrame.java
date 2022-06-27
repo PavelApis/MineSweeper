@@ -1,10 +1,16 @@
 package io.github.pavelapis.minesweeper;
 
+import java.awt.Component;
+import java.awt.Dimension;
+import java.io.Serial;
 import javax.swing.*;
-import java.awt.*;
 
 public class WinFrame extends JFrame {
-    public WinFrame(Minesweeper minesweeper) {
+
+    @Serial
+    private static final long serialVersionUID = 6L;
+
+    public WinFrame(final Minesweeper minesweeper) {
         setResizable(false);
         final JPanel winPanel = new JPanel();
         add(winPanel);

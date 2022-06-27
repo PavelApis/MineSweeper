@@ -21,7 +21,6 @@
     <module name="TreeWalker">
         <module name="AvoidStarImport">
             <property name="excludes" value="javax.swing"/>
-            <property name="excludes" value="java.awt"/>
         </module>
         <module name="AvoidEscapedUnicodeCharacters">
             <property name="allowEscapesForControlCharacters" value="true"/>

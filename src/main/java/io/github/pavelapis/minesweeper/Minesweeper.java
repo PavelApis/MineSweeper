@@ -27,24 +27,6 @@ public class Minesweeper extends JFrame {
     @Getter
     private int leftCellsToOpen;
 
-    public boolean checkIsMined(final int row, final int column) {
-        return field[row][column].isMined();
-    }
-
-    public void clickCell(final int row, final int column) {
-        clickCell(field[row][column]);
-    }
-
-    private void initCells() {
-        field = new Cell[sizeY][sizeX];
-        for (int i = 0; i < sizeY; i++) {
-            for (int j = 0; j < sizeX; j++) {
-                field[i][j] = new Cell(this, i, j);
-                add(field[i][j]);
-            }
-        }
-    }
-
     public Minesweeper(final int sizeX, final int sizeY, final int mines) {
         this.sizeX = sizeX;
         this.sizeY = sizeY;
@@ -63,6 +45,16 @@ public class Minesweeper extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Minesweeper");
         setVisible(true);
+    }
+
+    private void initCells() {
+        field = new Cell[sizeY][sizeX];
+        for (int i = 0; i < sizeY; i++) {
+            for (int j = 0; j < sizeX; j++) {
+                field[i][j] = new Cell(this, i, j);
+                add(field[i][j]);
+            }
+        }
     }
 
     private void mineCells(final int mines) {
@@ -93,28 +85,24 @@ public class Minesweeper extends JFrame {
         new LoseFrame(this);
     }
 
-    private void checkWin(){
-        if(leftCellsToOpen == 0){
-            gameWin();
+    private void checkWin() {
+        if (leftCellsToOpen == 0) {
+            setEnabled(false);
+            new WinFrame(this);
         }
-    }
-
-    private void gameWin(){
-        setEnabled(false);
-        new WinFrame(this);
     }
 
     public boolean checkBounds(final int row, final int column) {
         return row >= 0 && row < getSizeY() && column >= 0 && column < getSizeX();
     }
 
-    public int numberOfMinedNeighbours(Cell cell) {
+    public int numberOfMinedNeighbours(final Cell cell) {
         int result = 0;
-        int coordinateY = cell.getCoordinateY();
-        int coordinateX = cell.getCoordinateX();
+        final int coordinateY = cell.getCoordinateY();
+        final int coordinateX = cell.getCoordinateX();
         for (int i = coordinateY - 1; i <= coordinateY + 1; i++) {
             for (int j = coordinateX - 1; j <= coordinateX + 1; j++) {
-                if (checkBounds(i, j) && checkIsMined(i, j)) {
+                if (checkBounds(i, j) && field[i][j].isMined()) {
                     result++;
                 }
             }
@@ -122,7 +110,7 @@ public class Minesweeper extends JFrame {
         return result;
     }
 
-    protected void clickCell(Cell cell) {
+    protected void clickCell(final Cell cell) {
         if (cell.isOpened()) {
             return;
         }
@@ -143,13 +131,13 @@ public class Minesweeper extends JFrame {
         checkWin();
     }
 
-    private void spreadClick(Cell cell) {
+    private void spreadClick(final Cell cell) {
         final int coordinateY = cell.getCoordinateY();
         final int coordinateX = cell.getCoordinateX();
         for (int i = coordinateY - 1; i <= coordinateY + 1; i++) {
             for (int j = coordinateX - 1; j <= coordinateX + 1; j++) {
                 if (!(i == coordinateX && j == coordinateY) && checkBounds(i, j)) {
-                    clickCell(i, j);
+                    clickCell(field[i][j]);
                 }
             }
         }

@@ -32,7 +32,7 @@ class Cell extends JButton {
     private int value;
 
 
-    public Cell(Minesweeper minesweeper, final int coordinateY, final int coordinateX) {
+    public Cell(final Minesweeper minesweeper, final int coordinateY, final int coordinateX) {
         this.coordinateX = coordinateX;
         this.coordinateY = coordinateY;
         this.value = 0;

@@ -1,12 +1,17 @@
 package io.github.pavelapis.minesweeper;
 
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.io.Serial;
 import javax.swing.*;
 
 
 public class LoseFrame extends JFrame {
 
-    public LoseFrame(Minesweeper minesweeper) {
+    @Serial
+    private static final long serialVersionUID = 5L;
+
+    public LoseFrame(final Minesweeper minesweeper) {
         setResizable(false);
         final JPanel losePanel = new JPanel();
         add(losePanel);
