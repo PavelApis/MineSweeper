@@ -56,7 +56,7 @@ public class Minesweeper extends JFrame {
             }
         }
     }
-
+    
     private void mineCells(final int mines) {
         final List<Cell> listOfCells = new LinkedList<>();
         Arrays.stream(field).flatMap(Arrays::stream).forEach(listOfCells::add);
@@ -80,6 +80,7 @@ public class Minesweeper extends JFrame {
         System.out.println("-------------------");
     }
     */
+    
     private void gameLost() {
         setEnabled(false);
         new LoseFrame(this);

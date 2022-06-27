@@ -13,7 +13,6 @@
 2. After installing the necessary programs, you must run the following commands in the root of the project:
 ~~~ 
   mvn install 
-  mvn package
   ~~~
 
 
@@ -27,5 +26,5 @@ You can follow my GitHub Profile to stay updated about my latest projects: [![Gi
 [![GitHub Issues](https://img.shields.io/github/issues/PavelApis/MineSweeper.svg?style=flat&label=Issues&maxAge=2592000)](https://github.com/PavelApis/MineSweeper/issues)
 
 ### License
-[![MIT](https://img.shields.io/badge/License-MIT-brightgreen)](https://github.com/PavelApis/MineSweeper/License.txt)
+[![MIT](https://img.shields.io/badge/License-MIT-brightgreen)](https://github.com/PavelApis/MineSweeper/blob/master/LICENSE.txt)
 
