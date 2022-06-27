@@ -17,6 +17,8 @@ public class Minesweeper extends JFrame {
     @Serial
     private static final long serialVersionUID = 2L;
     @Getter
+    private boolean gameInProgress;
+    @Getter
     private final int sizeX;
     @Getter
     private final int sizeY;
@@ -32,6 +34,7 @@ public class Minesweeper extends JFrame {
         this.sizeY = sizeY;
         this.numberOfMines = mines;
         this.leftCellsToOpen = sizeX * sizeY - mines;
+        this.gameInProgress = true;
 
         setPreferredSize(new Dimension(Cell.getCELL_SIZE() * sizeX, Cell.getCELL_SIZE() * sizeY));
         setResizable(false);
@@ -56,7 +59,7 @@ public class Minesweeper extends JFrame {
             }
         }
     }
-    
+
     private void mineCells(final int mines) {
         final List<Cell> listOfCells = new LinkedList<>();
         Arrays.stream(field).flatMap(Arrays::stream).forEach(listOfCells::add);
@@ -80,14 +83,15 @@ public class Minesweeper extends JFrame {
         System.out.println("-------------------");
     }
     */
-    
+
     private void gameLost() {
         setEnabled(false);
         new LoseFrame(this);
     }
 
     private void checkWin() {
-        if (leftCellsToOpen == 0) {
+        if (gameInProgress && leftCellsToOpen == 0) {
+            gameInProgress = false;
             setEnabled(false);
             new WinFrame(this);
         }
