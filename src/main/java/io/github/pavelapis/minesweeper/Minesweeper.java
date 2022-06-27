@@ -1,19 +1,39 @@
 package io.github.pavelapis.minesweeper;
 
+import lombok.Getter;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.io.Serial;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import javax.swing.JPanel;
+import javax.swing.*;
 
-public class Minesweeper extends JPanel {
+public class Minesweeper extends JFrame {
 
-    int sizeX;
-    int sizeY;
-    Cell[][] field;
+    @Serial
+    private static final long serialVersionUID = 2L;
+    @Getter
+    private final int sizeX;
+    @Getter
+    private final int sizeY;
+    @Getter
+    private Cell[][] field;
+
+    public Cell getCell(final int row, final int column) {
+        return field[row][column];
+    }
+
+    public boolean checkIsMined(final int row, final int column) {
+        return field[row][column].isMined();
+    }
+
+    public void clickCell(final int row, final int column) {
+        field[row][column].clickCell();
+    }
 
     private void initCells() {
         field = new Cell[sizeY][sizeX];
@@ -25,32 +45,37 @@ public class Minesweeper extends JPanel {
         }
     }
 
-    public Minesweeper(int sizeX, int sizeY, int mines) {
+    public Minesweeper(final int sizeX, final int sizeY, final int mines) {
         this.sizeX = sizeX;
         this.sizeY = sizeY;
-        setPreferredSize(new Dimension(Cell.CELL_SIZE * sizeX, Cell.CELL_SIZE * sizeY));
+        setPreferredSize(new Dimension(Cell.getCELL_SIZE() * sizeX, Cell.getCELL_SIZE() * sizeY));
+        setResizable(false);
         setLayout(new GridLayout(sizeY, sizeX));
         initCells();
         mineCells(mines);
-        printField();
         setCellsValues();
-        printField();
+        pack();
         setBackground(Color.LIGHT_GRAY);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setTitle("Minesweeper");
+        setVisible(true);
     }
 
-    private void mineCells(int mines) {
-        List<Cell> listOfCells = new LinkedList<>();
+    private void mineCells(final int mines) {
+        final List<Cell> listOfCells = new LinkedList<>();
         Arrays.stream(field).flatMap(Arrays::stream).forEach(listOfCells::add);
         Collections.shuffle(listOfCells);
         listOfCells.stream().limit(mines).forEach(Cell::mine);
     }
 
-    public void setCellsValues() {
+    private void setCellsValues() {
         Arrays.stream(field).flatMap(Arrays::stream).filter(Cell::isNotMined)
                 .forEach(cell -> cell.setValue(cell.numberOfMinedNeighbours()));
     }
 
-    private void printField() {
+    /* TODO
+    private void logField() {
         for (int i = 0; i < sizeY; i++) {
             for (int j = 0; j < sizeX; j++) {
                 System.out.print(field[i][j].getValue());
@@ -59,4 +84,5 @@ public class Minesweeper extends JPanel {
         }
         System.out.println("-------------------");
     }
+    */
 }

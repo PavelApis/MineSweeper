@@ -1,5 +1,7 @@
 package io.github.pavelapis.minesweeper;
 
+import lombok.Getter;
+
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import javax.swing.ImageIcon;
@@ -7,14 +9,10 @@ import javax.swing.JButton;
 
 public class IconMaker {
 
-    JButton button;
-    Path pathToSprites = FileSystems.getDefault().getPath("src", "main", "java", "sprites");
+    @Getter
+    private static Path pathToSprites = FileSystems.getDefault().getPath("src", "main", "java", "sprites");
 
-    public IconMaker(JButton button) {
-        this.button = button;
-    }
-
-    public void setIcon(String name) {
+    public static void setIcon(final JButton button, final String name) {
         button.setIcon(new ImageIcon(pathToSprites.resolve(name + ".jpg").toString()));
     }
 }

@@ -3,6 +3,7 @@ package io.github.pavelapis.minesweeper;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.io.Serial;
 import java.util.function.Function;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -11,35 +12,39 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class WelcomeFrame extends JFrame {
+
+    @Serial
+    private static final long serialVersionUID = 3L;
+
     public WelcomeFrame() {
         setResizable(false);
-        JPanel introPanel = new JPanel();
+        final JPanel introPanel = new JPanel();
         add(introPanel);
         introPanel.setPreferredSize(new Dimension(300, 110));
         introPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
         introPanel.setAlignmentY(Component.CENTER_ALIGNMENT);
 
-        JLabel rowInputLabel = new JLabel("Enter number of rows: ");
+        final JLabel rowInputLabel = new JLabel("Enter number of rows: ");
         introPanel.add(rowInputLabel);
-        JTextField rowInputField = new JTextField(5);
+        final JTextField rowInputField = new JTextField(5);
         introPanel.add(rowInputField);
 
-        JLabel columnInputLabel = new JLabel("Enter number of columns: ");
+        final JLabel columnInputLabel = new JLabel("Enter number of columns: ");
         introPanel.add(columnInputLabel);
-        JTextField columnInputField = new JTextField(5);
+        final JTextField columnInputField = new JTextField(5);
         introPanel.add(columnInputField);
 
-        JLabel minesInputLabel = new JLabel("Enter number of mines: ");
+        final JLabel minesInputLabel = new JLabel("Enter number of mines: ");
         introPanel.add(minesInputLabel);
-        JTextField minesInputField = new JTextField(5);
+        final JTextField minesInputField = new JTextField(5);
         introPanel.add(minesInputField);
 
 
-        JButton startGame = new JButton("Start Game");
+        final JButton startGame = new JButton("Start Game");
         startGame.addActionListener(actionEvent -> {
             setVisible(false);
-            Function<JTextField, Integer> getText = x -> Integer.parseInt(x.getText());
-            Game game = new Game(
+            final Function<JTextField, Integer> getText = x -> Integer.parseInt(x.getText());
+            new Minesweeper(
                     getText.apply(columnInputField), getText.apply(rowInputField), getText.apply(minesInputField)
             );
         });
