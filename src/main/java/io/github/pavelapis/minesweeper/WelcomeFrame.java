@@ -43,6 +43,7 @@ public class WelcomeFrame extends JFrame {
         final JButton startGame = new JButton("Start Game");
         startGame.addActionListener(actionEvent -> {
             setVisible(false);
+            dispose();
             final Function<JTextField, Integer> getText = x -> Integer.parseInt(x.getText());
             new Minesweeper(
                     getText.apply(columnInputField), getText.apply(rowInputField), getText.apply(minesInputField)
