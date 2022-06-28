@@ -22,8 +22,7 @@ public class Minesweeper extends JFrame {
     private final int sizeX;
     @Getter
     private final int sizeY;
-    @Getter
-    private Cell[][] field;
+    private transient Cell[][] field;
     @Getter
     private final int numberOfMines;
     @Getter
@@ -40,7 +39,7 @@ public class Minesweeper extends JFrame {
         setResizable(false);
         setLayout(new GridLayout(sizeY, sizeX));
         initCells();
-        mineCells(mines);
+        mineCells(numberOfMines);
         setCellsValues();
         pack();
         setBackground(Color.LIGHT_GRAY);
