@@ -1,4 +1,4 @@
-package io.github.pavelapis.minesweeper;
+package io.github.pavelapis.minesweeper.gameclasses;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -24,29 +24,29 @@ public class Cell extends JButton {
     @Getter
     private static final int CELL_SIZE = 45;
     @Getter
-    private final int coordinateX;
+    private final int row;
     @Getter
-    private final int coordinateY;
+    private final int column;
     @Getter
     @Setter
     private int value;
 
-    public Cell(final Minesweeper minesweeper, final int coordinateY, final int coordinateX, final int value) {
-        this.coordinateX = coordinateX;
-        this.coordinateY = coordinateY;
+    public Cell(final int row, final int column, final int value) {
+        this.column = column;
+        this.row = row;
         this.value = value;
         setSize(new Dimension(CELL_SIZE, CELL_SIZE));
         setBackground(Color.decode("#E4E4E4"));
-        this.addActionListener(actionEvent -> minesweeper.clickCell(this));
+        // this.addActionListener();
     }
 
-    public Cell(final Minesweeper minesweeper, final int coordinateY, final int coordinateX) {
-        this.coordinateX = coordinateX;
-        this.coordinateY = coordinateY;
+    public Cell(final int coordinateY, final int coordinateX) {
+        this.column = coordinateX;
+        this.row = coordinateY;
         this.value = 0;
         setSize(new Dimension(CELL_SIZE, CELL_SIZE));
         setBackground(Color.decode("#E4E4E4"));
-        this.addActionListener(actionEvent -> minesweeper.clickCell(this));
+        // this.addActionListener(actionEvent -> field.clickCell(this));
     }
 
     public void mine() {

@@ -1,4 +1,4 @@
-package io.github.pavelapis.minesweeper;
+package io.github.pavelapis.minesweeper.gameclasses;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
