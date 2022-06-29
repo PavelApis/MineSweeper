@@ -40,9 +40,9 @@ public class Cell extends JButton {
         // this.addActionListener();
     }
 
-    public Cell(final int coordinateY, final int coordinateX) {
-        this.column = coordinateX;
-        this.row = coordinateY;
+    public Cell(final int row, final int column) {
+        this.column = column;
+        this.row = row;
         this.value = 0;
         setSize(new Dimension(CELL_SIZE, CELL_SIZE));
         setBackground(Color.decode("#E4E4E4"));

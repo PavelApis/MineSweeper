@@ -27,7 +27,7 @@ public class FieldTest {
                 }
             }
         }
-        assertThat(field.getNumberOfmines()).isEqualTo(mineCounter);
+        assertThat(field.getNumberOfMines()).isEqualTo(mineCounter);
     }
     /*
             field:                field:

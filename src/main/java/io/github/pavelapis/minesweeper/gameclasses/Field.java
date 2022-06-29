@@ -15,12 +15,12 @@ public final class Field {
     @Getter
     private final int columns;
     @Getter
-    private final int numberOfmines;
+    private final int numberOfMines;
 
     public Field(final Cell[][] cells, final int numberOfMines) {
         this.rows = cells.length;
         this.columns = cells[0].length;
-        this.numberOfmines = numberOfMines;
+        this.numberOfMines = numberOfMines;
 
         this.cells = new Cell[rows][columns];
         for (int i = 0; i < rows; i++) {
@@ -34,7 +34,7 @@ public final class Field {
     public Field(final int rows, final int columns, final int numberOfMines) {
         this.rows = rows;
         this.columns = columns;
-        this.numberOfmines = numberOfMines;
+        this.numberOfMines = numberOfMines;
         initCells();
         mineCells(numberOfMines);
         setCellsValues();
