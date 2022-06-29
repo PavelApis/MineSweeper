@@ -9,6 +9,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 @Slf4j
+@Slf4j
 public class IconMaker {
 
     public static void setIcon(final JButton button, final String name) {
