@@ -1,14 +1,14 @@
 package io.github.pavelapis.minesweeper.gameclasses;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-
+@Slf4j
 public class IconMaker {
 
     public static void setIcon(final JButton button, final String name) {
@@ -17,8 +17,7 @@ public class IconMaker {
             final BufferedImage bufferedImage = ImageIO.read(stream);
             button.setIcon(new ImageIcon(bufferedImage));
         } catch (IOException e) {
-            final Logger log = Logger.getLogger(IconMaker.class.getName());
-            if (log.isLoggable(Level.INFO)) {
+            if (log.isInfoEnabled()) {
                 log.info(e.getMessage());
             }
         }

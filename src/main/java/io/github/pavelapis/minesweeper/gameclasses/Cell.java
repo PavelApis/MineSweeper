@@ -32,21 +32,22 @@ public class Cell extends JButton {
     private int value;
 
     public Cell(final int row, final int column, final int value) {
-        this.column = column;
+        checkPosition(row, column);
+        checkValue(value);
         this.row = row;
+        this.column = column;
         this.value = value;
         setSize(new Dimension(CELL_SIZE, CELL_SIZE));
         setBackground(Color.decode("#E4E4E4"));
-        // this.addActionListener();
     }
 
     public Cell(final int row, final int column) {
-        this.column = column;
+        checkPosition(row, column);
         this.row = row;
+        this.column = column;
         this.value = 0;
         setSize(new Dimension(CELL_SIZE, CELL_SIZE));
         setBackground(Color.decode("#E4E4E4"));
-        // this.addActionListener(actionEvent -> field.clickCell(this));
     }
 
     public void mine() {
@@ -59,6 +60,22 @@ public class Cell extends JButton {
 
     public boolean isMined() {
         return this.value == -1;
+    }
+
+    public void checkPosition(final int row, final int column) {
+        if (row < 0) {
+            throw new IllegalArgumentException("Row must be positive.");
+        }
+        if (column < 0) {
+            throw new IllegalArgumentException("Column must be positive");
+        }
+    }
+
+    public void checkValue(final int value) {
+        if (value < -1 || value > 8) {
+            throw new IllegalArgumentException("Value must equals number of mined Neighbours in interval [0, 8] or " +
+                    "be -1 which matches to mined cell");
+        }
     }
 
     /* TODO

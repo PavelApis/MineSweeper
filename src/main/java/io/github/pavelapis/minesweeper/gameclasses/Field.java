@@ -8,7 +8,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public final class Field {
-
     private transient Cell[][] cells;
     @Getter
     private final int rows;
