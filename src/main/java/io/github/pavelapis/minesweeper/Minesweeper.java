@@ -49,6 +49,10 @@ public class Minesweeper extends JFrame {
         setVisible(true);
     }
 
+    public Cell getCell(final int row, final int column) {
+        return field[row][column];
+    }
+
     private void initCells() {
         field = new Cell[sizeY][sizeX];
         for (int i = 0; i < sizeY; i++) {

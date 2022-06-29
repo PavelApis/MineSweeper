@@ -14,7 +14,7 @@ import javax.swing.JButton;
  * value: [0-9] - number of mined neighbors; -1 - mine.
  */
 
-class Cell extends JButton {
+public class Cell extends JButton {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -31,6 +31,14 @@ class Cell extends JButton {
     @Setter
     private int value;
 
+    public Cell(final Minesweeper minesweeper, final int coordinateY, final int coordinateX, final int value) {
+        this.coordinateX = coordinateX;
+        this.coordinateY = coordinateY;
+        this.value = value;
+        setSize(new Dimension(CELL_SIZE, CELL_SIZE));
+        setBackground(Color.decode("#E4E4E4"));
+        this.addActionListener(actionEvent -> minesweeper.clickCell(this));
+    }
 
     public Cell(final Minesweeper minesweeper, final int coordinateY, final int coordinateX) {
         this.coordinateX = coordinateX;
