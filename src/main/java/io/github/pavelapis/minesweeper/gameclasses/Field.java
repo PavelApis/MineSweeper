@@ -60,7 +60,7 @@ public final class Field {
         final List<Cell> listOfCells = new LinkedList<>();
         Arrays.stream(cells).flatMap(Arrays::stream).forEach(listOfCells::add);
         Collections.shuffle(listOfCells);
-        listOfCells.stream().limit(mines).forEach(Cell::mine);
+        listOfCells.stream().limit(mines).forEach(cell ->  cell.setValue(Cell.MINE_VALUE));
     }
 
     public void setCellsValues() {

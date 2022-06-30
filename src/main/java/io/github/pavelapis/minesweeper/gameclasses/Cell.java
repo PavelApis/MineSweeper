@@ -51,10 +51,6 @@ public class Cell extends JButton {
         setBackground(Color.decode("#E4E4E4"));
     }
 
-    public void mine() {
-        value = -1;
-    }
-
     public boolean isNotMined() {
         return !isMined();
     }
