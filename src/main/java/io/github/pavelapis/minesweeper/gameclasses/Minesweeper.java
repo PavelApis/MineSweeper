@@ -17,6 +17,8 @@ public class Minesweeper extends JFrame {
     @Getter
     private boolean gameInProgress;
     @Getter
+    private boolean gameWon;
+    @Getter
     private final int columns;
     @Getter
     private final int rows;
@@ -32,6 +34,7 @@ public class Minesweeper extends JFrame {
         this.numberOfMines = numberOfMines;
         this.leftCellsToOpen = columns * rows - numberOfMines;
         this.gameInProgress = true;
+        this.gameWon = false;
         setLayout(new GridLayout(rows, columns));
         addField(new Field(rows, columns, numberOfMines));
 
@@ -76,9 +79,14 @@ public class Minesweeper extends JFrame {
     private void checkWin() {
         if (gameInProgress && leftCellsToOpen == 0) {
             gameInProgress = false;
+            gameWon = true;
             setEnabled(false);
             new WinFrame(this);
         }
+    }
+
+    public Cell getCell(final int row, final int column){
+        return field.getCell(row, column);
     }
 
     protected void clickCell(final Cell cell) {
