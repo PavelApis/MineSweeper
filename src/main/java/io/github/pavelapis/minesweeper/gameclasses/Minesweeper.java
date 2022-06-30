@@ -72,6 +72,7 @@ public class Minesweeper extends JFrame {
     */
 
     private void gameLost() {
+        gameInProgress = false;
         setEnabled(false);
         new LoseFrame(this);
     }
@@ -85,7 +86,7 @@ public class Minesweeper extends JFrame {
         }
     }
 
-    public Cell getCell(final int row, final int column){
+    public Cell getCell(final int row, final int column) {
         return field.getCell(row, column);
     }
 

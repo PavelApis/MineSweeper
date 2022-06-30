@@ -1,6 +1,5 @@
 package io.github.pavelapis.minesweeper.gameclasses;
 
-import io.github.pavelapis.minesweeper.gameclasses.IconMaker;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;

@@ -1,7 +1,5 @@
 package io.github.pavelapis.minesweeper.gameclasses;
 
-import io.github.pavelapis.minesweeper.gameclasses.Cell;
-import io.github.pavelapis.minesweeper.gameclasses.Field;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
