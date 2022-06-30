@@ -1,6 +1,7 @@
 package io.github.pavelapis.minesweeper.gameclasses;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
@@ -9,11 +10,9 @@ class IconMakerTest {
     /*
         Files in resources directory "src/main/java/sprites" should exist.
      */
-    @Test
-    /* default */ void testMakeIcon() {
-        for (int i = 1; i < 9; i++) {
-            assertThat(IconMaker.makeIcon(Integer.toString(i))).isNotNull();
-        }
-        assertThat(IconMaker.makeIcon("mine")).isNotNull();
+    @ParameterizedTest
+    @ValueSource(strings = {"1", "2", "3", "4", "5", "6", "7", "8", "mine"})
+    /* default */ void testMakeIcon(final String name) {
+        assertThat(IconMaker.makeIcon(name)).isNotNull();
     }
 }

@@ -20,19 +20,19 @@ class CellTest {
     @Test
         /* default */ void cellsCreation() {
         final Cell cell = new Cell(1, 2);
-        assertThat(cell.getValue()).isEqualTo(0);
+        assertThat(cell.getValue()).isZero();
         assertThat(cell.getRow()).isEqualTo(1);
         assertThat(cell.getColumn()).isEqualTo(2);
         assertThat(cell.isNotMined()).isTrue();
 
         final Cell minedCell = new Cell(0, 5, Cell.MINE_VALUE);
-        assertThat(minedCell.getRow()).isEqualTo(0);
+        assertThat(minedCell.getRow()).isZero();
         assertThat(minedCell.getColumn()).isEqualTo(5);
         assertThat(minedCell.isMined()).isTrue();
 
         final Cell notMinedCell = new Cell(5, 0, 2);
         assertThat(notMinedCell.getRow()).isEqualTo(5);
-        assertThat(notMinedCell.getColumn()).isEqualTo(0);
+        assertThat(notMinedCell.getColumn()).isZero();
         assertThat(notMinedCell.isNotMined()).isTrue();
     }
 }
