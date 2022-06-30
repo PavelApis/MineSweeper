@@ -5,6 +5,7 @@
     </description>
 
     <rule ref="category/java/bestpractices.xml">
+        <exclude name="GuardLogStatement"/>
         <exclude name="MethodReturnsInternalArray"/>
         <exclude name="JUnitTestContainsTooManyAsserts"/>
     </rule>
