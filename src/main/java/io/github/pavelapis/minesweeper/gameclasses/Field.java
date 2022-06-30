@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public final class Field {
+
     private transient Cell[][] cells;
     @Getter
     private final int rows;
@@ -31,6 +32,7 @@ public final class Field {
     }
 
     public Field(final int rows, final int columns, final int numberOfMines) {
+        checkConstructorArguments(rows, columns, numberOfMines);
         this.rows = rows;
         this.columns = columns;
         this.numberOfMines = numberOfMines;
@@ -82,5 +84,20 @@ public final class Field {
             }
         }
         return result;
+    }
+
+    private void checkConstructorArguments(final int rows, final int columns, final int mines) {
+        if (rows <= 0) {
+            throw new IllegalArgumentException("Number of rows must be more than 0.");
+        }
+        if (columns <= 0) {
+            throw new IllegalArgumentException("Number of columns must be more than 0.");
+        }
+        if (mines < 0) {
+            throw new IllegalArgumentException("Number of mines cannot be negative.");
+        }
+        if (mines > rows * columns) {
+            throw new IllegalArgumentException("Number of mines cannot be more than number of cells.");
+        }
     }
 }

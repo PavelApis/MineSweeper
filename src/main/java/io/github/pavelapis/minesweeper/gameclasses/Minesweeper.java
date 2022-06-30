@@ -88,14 +88,14 @@ public class Minesweeper extends JFrame {
         cell.setOpened(true);
         if (cell.getValue() == -1) {
             gameLost();
-            IconMaker.setIcon(cell, "mine");
+            cell.setIcon(IconMaker.makeIcon("mine"));
         } else if (cell.getValue() == 0) {
             leftCellsToOpen--;
             cell.setBackground(Color.lightGray);
             spreadClick(cell);
         } else if (cell.getValue() >= 1 || cell.getValue() < 10) {
             leftCellsToOpen--;
-            IconMaker.setIcon(cell, Integer.toString(cell.getValue()));
+            cell.setIcon(IconMaker.makeIcon(Integer.toString(cell.getValue())));
         } else {
             throw new IllegalStateException("Value of cell must be from -1 to 9");
         }

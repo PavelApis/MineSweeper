@@ -2,25 +2,24 @@ package io.github.pavelapis.minesweeper.gameclasses;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
 @Slf4j
-@Slf4j
 public class IconMaker {
 
-    public static void setIcon(final JButton button, final String name) {
+    public static ImageIcon makeIcon(final String name) {
         try (InputStream stream = Thread.currentThread().getContextClassLoader()
                 .getResourceAsStream(name + ".jpg")) {
-            final BufferedImage bufferedImage = ImageIO.read(stream);
-            button.setIcon(new ImageIcon(bufferedImage));
+            return new ImageIcon(ImageIO.read(stream));
         } catch (IOException e) {
-            if (log.isInfoEnabled()) {
-                log.info(e.getMessage());
+            if (log.isErrorEnabled()) {
+                log.error("Error occurred during processing jpg: {}", e.getMessage(), e);
             }
+            throw new IllegalStateException(e);
         }
     }
 }
+

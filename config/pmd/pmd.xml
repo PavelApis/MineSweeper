@@ -11,6 +11,7 @@
 
     <rule ref="category/java/codestyle.xml">
         <exclude name="CallSuperInConstructor"/>
+        <exclude name="AtLeastOneConstructor"/>
     </rule>
 
     <rule ref="category/java/codestyle.xml/ShortClassName">

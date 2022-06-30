@@ -6,7 +6,7 @@ import lombok.Setter;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.io.Serial;
-import javax.swing.JButton;
+import javax.swing.*;
 
 
 /**
@@ -23,6 +23,7 @@ public class Cell extends JButton {
     private boolean opened;
     @Getter
     private static final int CELL_SIZE = 45;
+    public static final int MINE_VALUE = -1;
     @Getter
     private final int row;
     @Getter
@@ -55,11 +56,11 @@ public class Cell extends JButton {
     }
 
     public boolean isNotMined() {
-        return this.value != -1;
+        return !isMined();
     }
 
     public boolean isMined() {
-        return this.value == -1;
+        return this.value == MINE_VALUE;
     }
 
     public void checkPosition(final int row, final int column) {
@@ -72,7 +73,7 @@ public class Cell extends JButton {
     }
 
     public void checkValue(final int value) {
-        if (value < -1 || value > 8) {
+        if (value != MINE_VALUE && (value < 0 || value > 8)) {
             throw new IllegalArgumentException("Value must equals number of mined Neighbours in interval [0, 8] or " +
                     "be -1 which matches to mined cell");
         }

@@ -5,11 +5,19 @@ import io.github.pavelapis.minesweeper.gameclasses.Field;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
 
 class FieldTest {
 
-    protected FieldTest() {
-
+    /*
+        Field constructor with illegal arguments must throw IllegalArgumentException.
+     */
+    @Test
+    /* default */ void testIllegalConstructorArguments() {
+        assertThatThrownBy(() -> new Field(-1, 2, 2)).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> new Field(2, -1, -1)).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> new Field(2, 3, -10)).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> new Field(5, 5, 1000)).isInstanceOf(IllegalArgumentException.class);
     }
 
 
@@ -61,5 +69,6 @@ class FieldTest {
                 assertThat(field.getCell(i, j).getValue()).isEqualTo(expectedResult[i][j]);
             }
         }
+        assertThat(field.numberOfMinedNeighbours(field.getCell(1, 1))).isEqualTo(3);
     }
 }
