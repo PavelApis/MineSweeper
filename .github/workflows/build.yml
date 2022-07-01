@@ -7,7 +7,7 @@ on:
     branches: ["*"]
 
 jobs:
-  build:
+  build-1:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -23,3 +23,15 @@ jobs:
           cache: maven
       - name: Build with Maven
         run: mvn clean install
+  build-2:
+    runs-on: ubuntu-latest
+    steps:
+        -   uses: actions/checkout@v3
+        -   name: Set up JDK 17
+            uses: actions/setup-java@v3
+            with:
+                java-version: '17'
+                distribution: 'temurin'
+                cache: maven
+        -   name: Build with Maven
+            run: xvfb-run mvn clean install
