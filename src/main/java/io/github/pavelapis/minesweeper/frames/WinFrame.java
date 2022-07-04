@@ -1,4 +1,6 @@
-package io.github.pavelapis.minesweeper;
+package io.github.pavelapis.minesweeper.frames;
+
+import io.github.pavelapis.minesweeper.gameclasses.Minesweeper;
 
 import java.awt.Component;
 import java.awt.Dimension;

@@ -1,5 +1,7 @@
 package io.github.pavelapis.minesweeper;
 
+import io.github.pavelapis.minesweeper.frames.WelcomeFrame;
+
 import javax.swing.SwingUtilities;
 
 public class Main {

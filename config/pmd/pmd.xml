@@ -5,11 +5,15 @@
     </description>
 
     <rule ref="category/java/bestpractices.xml">
+        <exclude name="GuardLogStatement"/>
         <exclude name="MethodReturnsInternalArray"/>
+        <exclude name="JUnitTestContainsTooManyAsserts"/>
     </rule>
 
     <rule ref="category/java/codestyle.xml">
         <exclude name="CallSuperInConstructor"/>
+        <exclude name="CommentDefaultAccessModifier"/>
+        <exclude name="AtLeastOneConstructor"/>
     </rule>
 
     <rule ref="category/java/codestyle.xml/ShortClassName">

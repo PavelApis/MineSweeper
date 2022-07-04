@@ -1,8 +1,9 @@
 # MineSweeper -  Java Swing
 [![Java CI](https://github.com/PavelApis/MineSweeper/actions/workflows/build.yml/badge.svg)](https://github.com/PavelApis/MineSweeper/actions/workflows/build.yml "Java CI")
 ![version](https://img.shields.io/badge/version-1.0.0-yellow)
+[![codecov](https://codecov.io/gh/PavelApis/MineSweeper/branch/master/graph/badge.svg)](https://codecov.io/gh/PavelApis/MineSweeper)
 
-**MineSweeper**  is a Java written platform independent clone of well known office game made in Swing framework. 
+**MineSweeper**  is a Java written platform independent clone of well known office game made in Swing framework.
 
 ### How to Run
 
@@ -11,8 +12,8 @@
 - [apache-maven-3.8.6](https://maven.apache.org/install.html)
 
 2. After installing the necessary programs, you must run the following commands in the root of the project:
-~~~ 
-  mvn install 
+~~~
+  mvn install
   ~~~
 
 
