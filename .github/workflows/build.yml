@@ -27,5 +27,10 @@ jobs:
       - name: Build with Maven Windows & MacOS
         if: matrix.os == 'windows-latest' || matrix.os == 'macos-latest'
         run:  mvn clean install
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          fail_ci_if_error: true
+          verbose: false
 
 
