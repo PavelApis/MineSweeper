@@ -59,6 +59,10 @@ public class Cell extends JButton {
         return this.value == MINE_VALUE;
     }
 
+    public void setMined(){
+        this.value = MINE_VALUE;
+    }
+
     public void checkPosition(final int row, final int column) {
         if (row < 0) {
             throw new IllegalArgumentException("Row must be positive.");
