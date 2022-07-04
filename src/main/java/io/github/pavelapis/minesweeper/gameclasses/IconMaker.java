@@ -14,7 +14,11 @@ public class IconMaker {
     public static ImageIcon makeIcon(final String name) {
         try (InputStream stream = Thread.currentThread().getContextClassLoader()
                 .getResourceAsStream(name + ".jpg")) {
-            return new ImageIcon(ImageIO.read(stream));
+            if (stream != null) {
+                return new ImageIcon(ImageIO.read(stream));
+            } else {
+                throw new IllegalStateException("No such file named " + name + ".jpg in the resources directory.");
+            }
         }
     }
 }
