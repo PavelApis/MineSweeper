@@ -13,7 +13,7 @@ class IconMakerTest {
      */
     @ParameterizedTest
     @ValueSource(strings = {"1", "2", "3", "4", "5", "6", "7", "8", "mine"})
-    /* default */ void testMakeIcon(final String name) {
+    void testMakeIcon(final String name) {
         assertThat(IconMaker.makeIcon(name)).isNotNull();
     }
 }

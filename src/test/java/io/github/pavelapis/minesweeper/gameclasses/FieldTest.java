@@ -12,7 +12,7 @@ class FieldTest {
         Field constructor with illegal arguments must throw IllegalArgumentException.
      */
     @Test
-    /* default */ void testIllegalConstructorArguments() {
+    void testIllegalConstructorArguments() {
         assertThatThrownBy(() -> new Field(-1, 2, 2)).isInstanceOf(IllegalArgumentException.class);
         assertThatThrownBy(() -> new Field(2, -1, -1)).isInstanceOf(IllegalArgumentException.class);
         assertThatThrownBy(() -> new Field(2, 3, -10)).isInstanceOf(IllegalArgumentException.class);
@@ -24,7 +24,7 @@ class FieldTest {
         Number of mines in field must be equals to number of mines in constructor.
      */
     @Test
-    /* default */ void mineCells() {
+    void mineCells() {
         final int rows = 5;
         final int columns = 5;
         final int mines = 10;
@@ -50,7 +50,7 @@ class FieldTest {
             -1 0 0                -1 1 0
     */
     @Test
-    /* default */ void settingCellsValue() {
+    void settingCellsValue() {
         final Cell[][] cells = {
                 {new Cell(0, 0, -1), new Cell(0, 1, 0), new Cell(0, 2, -1)},
                 {new Cell(1, 0, 0), new Cell(1, 1, 0), new Cell(1, 2, 0)},

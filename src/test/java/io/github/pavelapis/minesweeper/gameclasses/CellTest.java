@@ -12,14 +12,14 @@ class CellTest {
         Cell constructor with illegal arguments must throw IllegalArgumentException
      */
     @Test
-    /* default */ void testIllegalConstructorArguments() {
+    void testIllegalConstructorArguments() {
         assertThatThrownBy(() -> new Cell(-1, 2)).isInstanceOf(IllegalArgumentException.class);
         assertThatThrownBy(() -> new Cell(2, -1)).isInstanceOf(IllegalArgumentException.class);
         assertThatThrownBy(() -> new Cell(2, 3, -10)).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-        /* default */ void cellsCreation() {
+    void cellsCreation() {
         final Cell cell = new Cell(1, 2);
         assertThat(cell.getValue()).isZero();
         assertThat(cell.getRow()).isEqualTo(1);

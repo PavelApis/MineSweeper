@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class MinesweeperTest {
 
     @Test
-        /* default */ void testIllegalConstructorArguments() {
+    void testIllegalConstructorArguments() {
         assertThatThrownBy(() -> new Minesweeper(-1, 2, 2)).isInstanceOf(IllegalArgumentException.class);
         assertThatThrownBy(() -> new Minesweeper(2, -1, -1)).isInstanceOf(IllegalArgumentException.class);
         assertThatThrownBy(() -> new Minesweeper(2, 3, -10)).isInstanceOf(IllegalArgumentException.class);
@@ -16,7 +16,7 @@ class MinesweeperTest {
     }
 
     @Test
-        /* default */ void testClickAndSpread() {
+    void testClickAndSpread() {
         final Minesweeper minesweeper = new Minesweeper(4, 4, 0);
         minesweeper.getCell(0, 0).doClick();
         for (int i = 0; i < 4; i++) {
@@ -27,7 +27,7 @@ class MinesweeperTest {
     }
 
     @Test
-        /* default */ void testWin() {
+    void testWin() {
         final Minesweeper minesweeper = new Minesweeper(3, 3, 0);
         minesweeper.getCell(1, 1).doClick();
         assertThat(minesweeper.isEnabled()).isFalse();
@@ -35,7 +35,7 @@ class MinesweeperTest {
     }
 
     @Test
-        /* default */ void testLose() {
+    void testLose() {
         final Minesweeper minesweeper = new Minesweeper(1, 1, 1);
         minesweeper.getCell(0, 0).doClick();
         assertThat(minesweeper.isEnabled()).isFalse();
