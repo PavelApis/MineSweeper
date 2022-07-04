@@ -59,7 +59,7 @@ public class Cell extends JButton {
         return this.value == MINE_VALUE;
     }
 
-    public void setMined(){
+    public void setMined() {
         this.value = MINE_VALUE;
     }
 

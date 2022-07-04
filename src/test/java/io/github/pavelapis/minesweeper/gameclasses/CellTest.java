@@ -13,9 +13,13 @@ class CellTest {
      */
     @Test
     void testIllegalConstructorArguments() {
-        assertThatThrownBy(() -> new Cell(-1, 2)).isInstanceOf(IllegalArgumentException.class);
-        assertThatThrownBy(() -> new Cell(2, -1)).isInstanceOf(IllegalArgumentException.class);
-        assertThatThrownBy(() -> new Cell(2, 3, -10)).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> new Cell(-1, 2)).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Row must be positive.");
+        assertThatThrownBy(() -> new Cell(2, -1)).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Column must be positive");
+        assertThatThrownBy(() -> new Cell(2, 3, -10)).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Value must equals number of mined Neighbours in interval [0, 8]" +
+                        " or be -1 which matches to mined cell");
     }
 
     @Test

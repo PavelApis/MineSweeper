@@ -9,10 +9,14 @@ class MinesweeperTest {
 
     @Test
     void testIllegalConstructorArguments() {
-        assertThatThrownBy(() -> new Minesweeper(-1, 2, 2)).isInstanceOf(IllegalArgumentException.class);
-        assertThatThrownBy(() -> new Minesweeper(2, -1, -1)).isInstanceOf(IllegalArgumentException.class);
-        assertThatThrownBy(() -> new Minesweeper(2, 3, -10)).isInstanceOf(IllegalArgumentException.class);
-        assertThatThrownBy(() -> new Minesweeper(5, 5, 1000)).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> new Minesweeper(-1, 2, 2)).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Number of columns must be more than 0.");
+        assertThatThrownBy(() -> new Minesweeper(2, -1, -1)).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Number of rows must be more than 0.");
+        assertThatThrownBy(() -> new Minesweeper(2, 3, -10)).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Number of mines cannot be negative.");
+        assertThatThrownBy(() -> new Minesweeper(5, 5, 1000)).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Number of mines cannot be more than number of cells.");
     }
 
     @Test

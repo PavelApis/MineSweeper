@@ -13,10 +13,14 @@ class FieldTest {
      */
     @Test
     void testIllegalConstructorArguments() {
-        assertThatThrownBy(() -> new Field(-1, 2, 2)).isInstanceOf(IllegalArgumentException.class);
-        assertThatThrownBy(() -> new Field(2, -1, -1)).isInstanceOf(IllegalArgumentException.class);
-        assertThatThrownBy(() -> new Field(2, 3, -10)).isInstanceOf(IllegalArgumentException.class);
-        assertThatThrownBy(() -> new Field(5, 5, 1000)).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> new Field(-1, 2, 2)).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Number of rows must be more than 0.");
+        assertThatThrownBy(() -> new Field(2, -1, -1)).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Number of columns must be more than 0.");
+        assertThatThrownBy(() -> new Field(2, 3, -10)).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Number of mines cannot be negative.");
+        assertThatThrownBy(() -> new Field(5, 5, 1000)).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Number of mines cannot be more than number of cells.");
     }
 
 
