@@ -28,7 +28,7 @@ jobs:
            key: ${{ runner.os }}-sonar
            restore-keys: ${{ runner.os }}-sonar
       -   name: Cache Maven packages
-          uses: actions/cache@v1
+          uses: actions/cache@v3
           with:
            path: ~/.m2
            key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
@@ -38,13 +38,13 @@ jobs:
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: xvfb-run mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=PavelApis_MineSweeper
+        run: xvfb-run mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=io.github.pavelapis:minesweeper
       - name: Build with Maven Windows & MacOS
         if: matrix.os == 'windows-latest' || matrix.os == 'macos-latest'
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=PavelApis_MineSweeper
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=io.github.pavelapis:minesweeper
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
