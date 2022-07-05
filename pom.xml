@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>groupId</groupId>
-    <artifactId>PavelApis_MineSweeper</artifactId>
+    <groupId>PavelApis</groupId>
+    <artifactId>MineSweeper</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
@@ -40,7 +40,6 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <sonar.organization>pavelapis</sonar.organization>
-        <sonar.projectKey>PavelApis_MineSweeper</sonar.projectKey>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
