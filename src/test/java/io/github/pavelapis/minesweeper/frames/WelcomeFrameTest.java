@@ -26,7 +26,7 @@ class WelcomeFrameTest {
 
     @Test
     void testWelcomeFrameComponents() {
-        assertThat(components.length).isEqualTo(7);
+        assertThat(components).hasSize(7);
 
         assertThat(components[0]).isInstanceOf(JLabel.class);
         assertThat(components[1]).isInstanceOf(JTextField.class);
