@@ -78,11 +78,5 @@ public class Cell extends JButton {
                     "be -1 which matches to mined cell");
         }
     }
-
-    /* TODO
-    private void setFlag() {
-
-    }
-    */
 }
 

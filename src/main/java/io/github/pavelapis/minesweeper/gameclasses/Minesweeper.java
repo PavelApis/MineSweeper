@@ -43,7 +43,7 @@ public class Minesweeper extends JFrame {
         pack();
         setBackground(Color.LIGHT_GRAY);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Minesweeper");
         setVisible(true);
     }
@@ -58,18 +58,6 @@ public class Minesweeper extends JFrame {
             }
         }
     }
-
-    /* TODO
-    private void logField() {
-        for (int i = 0; i < sizeY; i++) {
-            for (int j = 0; j < sizeX; j++) {
-                System.out.print(field[i][j].getValue());
-            }
-            System.out.println();
-        }
-        System.out.println("-------------------");
-    }
-    */
 
     private void gameLost() {
         gameInProgress = false;

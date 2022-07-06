@@ -2,16 +2,10 @@ package io.github.pavelapis.minesweeper.frames;
 
 import io.github.pavelapis.minesweeper.gameclasses.Minesweeper;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Dimension;
+import java.awt.*;
 import java.io.Serial;
-import java.util.function.Function;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import java.util.function.ToIntFunction;
+import javax.swing.*;
 
 public class WelcomeFrame extends JFrame {
 
@@ -46,9 +40,11 @@ public class WelcomeFrame extends JFrame {
         startGame.addActionListener(actionEvent -> {
             setVisible(false);
             dispose();
-            final Function<JTextField, Integer> getText = x -> Integer.parseInt(x.getText());
+            final ToIntFunction<JTextField> getText = x -> Integer.parseInt(x.getText());
             new Minesweeper(
-                    getText.apply(columnInputField), getText.apply(rowInputField), getText.apply(minesInputField)
+                    getText.applyAsInt(columnInputField),
+                    getText.applyAsInt(rowInputField),
+                    getText.applyAsInt(minesInputField)
             );
         });
 
@@ -56,7 +52,7 @@ public class WelcomeFrame extends JFrame {
         pack();
         setTitle("Minesweeper");
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
     }
 }

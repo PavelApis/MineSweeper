@@ -46,7 +46,7 @@ public class LoseFrame extends JFrame {
         pack();
         setTitle("Minesweeper");
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
     }
 }
