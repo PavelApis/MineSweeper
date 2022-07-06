@@ -38,13 +38,13 @@ jobs:
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: xvfb-run mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+        run: xvfb-run mvn verify
       - name: Build with Maven Windows & MacOS
         if: matrix.os == 'windows-latest' || matrix.os == 'macos-latest'
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+        run: mvn verify
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
