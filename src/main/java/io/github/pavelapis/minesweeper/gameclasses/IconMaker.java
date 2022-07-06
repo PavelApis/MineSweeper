@@ -1,6 +1,7 @@
 package io.github.pavelapis.minesweeper.gameclasses;
 
 import lombok.SneakyThrows;
+import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.InputStream;
@@ -8,11 +9,8 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 @Slf4j
-public final class IconMaker {
-
-    private IconMaker() {
-
-    }
+@UtilityClass
+public class IconMaker {
 
     @SneakyThrows
     public static ImageIcon makeIcon(final String name) {

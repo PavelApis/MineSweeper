@@ -2,6 +2,9 @@
 [![Java CI](https://github.com/PavelApis/MineSweeper/actions/workflows/build.yml/badge.svg)](https://github.com/PavelApis/MineSweeper/actions/workflows/build.yml "Java CI")
 ![version](https://img.shields.io/badge/version-1.0.0-yellow)
 [![codecov](https://codecov.io/gh/PavelApis/MineSweeper/branch/master/graph/badge.svg)](https://codecov.io/gh/PavelApis/MineSweeper)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=io.github.pavelapis%3Aminesweeper&metric=coverage)](https://sonarcloud.io/summary/new_code?id=io.github.pavelapis%3Aminesweeper)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=io.github.pavelapis%3Aminesweeper&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=io.github.pavelapis%3Aminesweeper)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=io.github.pavelapis%3Aminesweeper&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=io.github.pavelapis%3Aminesweeper)
 
 **MineSweeper**  is a Java written platform independent clone of well known office game made in Swing framework.
 
