@@ -8,12 +8,15 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 @Slf4j
-public class IconMaker {
+public final class IconMaker {
+
+    private IconMaker() {
+
+    }
 
     @SneakyThrows
     public static ImageIcon makeIcon(final String name) {
-        try (InputStream stream = Thread.currentThread().getContextClassLoader()
-                .getResourceAsStream(name + ".jpg")) {
+        try (InputStream stream = Thread.currentThread().getContextClassLoader().getResourceAsStream(name + ".jpg")) {
             if (stream != null) {
                 return new ImageIcon(ImageIO.read(stream));
             } else {
