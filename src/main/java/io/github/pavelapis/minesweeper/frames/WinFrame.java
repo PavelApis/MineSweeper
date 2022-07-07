@@ -42,7 +42,7 @@ public class WinFrame extends JFrame {
             dispose();
         });
         winPanel.add(answerNo);
-        pack();
+        super.pack();
         setTitle("Minesweeper");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

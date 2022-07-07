@@ -133,6 +133,7 @@
                 <version>4.6.0.0</version>
                 <configuration>
                     <includeTests>true</includeTests>
+                    <threshold>Low</threshold>
                     <excludeFilterFile>config/spotbugs/spotbugs.xml</excludeFilterFile>
                 </configuration>
                 <executions>

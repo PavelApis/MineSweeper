@@ -49,7 +49,7 @@ public class WelcomeFrame extends JFrame {
         });
 
         introPanel.add(startGame, BorderLayout.CENTER);
-        pack();
+        super.pack();
         setTitle("Minesweeper");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
