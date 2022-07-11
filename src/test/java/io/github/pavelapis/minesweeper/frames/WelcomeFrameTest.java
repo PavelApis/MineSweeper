@@ -75,7 +75,8 @@ class WelcomeFrameTest {
         columnInputField.setText("10");
         minesInputField.setText("20");
 
-        assertThat(welcomeFrame != null && welcomeFrame.isDisplayable()).isTrue();
+        assertThat(welcomeFrame).isNotNull();
+        assertThat(welcomeFrame.isDisplayable()).isTrue();
         startGame.doClick();
         assertThat(welcomeFrame.isDisplayable()).isFalse();
     }
