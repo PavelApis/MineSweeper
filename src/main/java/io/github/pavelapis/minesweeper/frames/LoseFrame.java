@@ -43,7 +43,7 @@ public class LoseFrame extends JFrame {
             dispose();
         });
         losePanel.add(answerNo);
-        pack();
+        super.pack();
         setTitle("Minesweeper");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

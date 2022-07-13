@@ -18,7 +18,7 @@ class WelcomeFrameTest {
     @BeforeEach
     void createFrameAndGetComponents() {
         welcomeFrame = new WelcomeFrame();
-        final Component introPanelComp =  welcomeFrame.getContentPane().getComponent(0);
+        final Component introPanelComp = welcomeFrame.getContentPane().getComponent(0);
         assertThat(introPanelComp).isInstanceOf(JPanel.class);
         final JPanel introPanel = (JPanel) introPanelComp;
         components = introPanel.getComponents();
@@ -75,6 +75,7 @@ class WelcomeFrameTest {
         columnInputField.setText("10");
         minesInputField.setText("20");
 
+        assertThat(welcomeFrame).isNotNull();
         assertThat(welcomeFrame.isDisplayable()).isTrue();
         startGame.doClick();
         assertThat(welcomeFrame.isDisplayable()).isFalse();

@@ -40,7 +40,7 @@ public class Minesweeper extends JFrame {
 
         setPreferredSize(new Dimension(Cell.getCELL_SIZE() * columns, Cell.getCELL_SIZE() * rows));
         setResizable(false);
-        pack();
+        super.pack();
         setBackground(Color.LIGHT_GRAY);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
